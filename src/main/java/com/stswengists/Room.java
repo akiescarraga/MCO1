@@ -46,8 +46,8 @@ public class Room {
         }
     }
 
-
-
-
+    public void addStudentToRoom(){
+        this.currentCapacity += 1;
+    }
 
 }

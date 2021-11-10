@@ -30,6 +30,7 @@ class Student {
         sections.forEach( currSection -> currSection.checkForConflict(newSection) );
         newSection.getRoom().checkCapacity();
         sections.add(newSection);
+        newSection.getRoom().addStudentToRoom();
     }
 
     Collection<Section> getSections() { return this.sections; }
