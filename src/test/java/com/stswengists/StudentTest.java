@@ -1,4 +1,4 @@
-package com.orangeandbronze.enlistment;
+package com.stswengists;
 
 import org.junit.jupiter.api.*;
 
