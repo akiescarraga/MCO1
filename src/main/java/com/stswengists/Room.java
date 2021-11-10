@@ -35,4 +35,19 @@ public class Room {
     public int hashCode() {
         return Objects.hash(roomName);
     }
+
+
+    void checkCapacity ()
+    {
+        if (this.currentCapacity > maxCapacity || this.currentCapacity == maxCapacity) {
+            throw new ScheduleConflictException(
+                    "room is full "
+            );
+        }
+    }
+
+
+
+
+
 }

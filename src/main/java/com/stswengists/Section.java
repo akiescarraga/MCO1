@@ -40,6 +40,9 @@ class Section {
          return schedule;
      }
 
+
+     public Room getRoom(){ return room; }
+
      @Override
      public String toString(){
          return sectionId;
