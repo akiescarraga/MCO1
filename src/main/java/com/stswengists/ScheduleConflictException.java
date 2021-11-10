@@ -1,4 +1,4 @@
-package com.orangeandbronze.enlistment;
+package com.stswengists;
 
 public class ScheduleConflictException extends RuntimeException {
     ScheduleConflictException(String msg) {
