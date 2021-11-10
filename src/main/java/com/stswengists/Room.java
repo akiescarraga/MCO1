@@ -50,4 +50,8 @@ public class Room {
         this.currentCapacity += 1;
     }
 
+    public void removeStudentFromRoom(){
+        this.currentCapacity -= 1;
+    }
+
 }
