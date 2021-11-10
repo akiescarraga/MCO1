@@ -39,7 +39,7 @@ public class Room {
 
     void checkCapacity ()
     {
-        if (this.currentCapacity > maxCapacity || this.currentCapacity == maxCapacity) {
+        if (this.currentCapacity >= maxCapacity) {
             throw new RuntimeException(
                     "Room is full "
             );
