@@ -12,7 +12,7 @@ class Section {
      private Schedule schedule;
      private Room room;
 
-     Section(String sectionId, Schedule schedule) {
+     Section(String sectionId, Schedule schedule, Room room) {
          notBlank(sectionId,
                  "sectionId can't be null, empty or whitespace");
 
@@ -21,6 +21,7 @@ class Section {
 
          this.sectionId = sectionId;
          this.schedule = schedule;
+         this.room = room;
      }
 
      boolean hasConflict(Section otherSection) {

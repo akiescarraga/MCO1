@@ -12,7 +12,7 @@ public class Room {
     private final int maxCapacity;
     private int currentCapacity;
 
-    public Room(String roomID, String roomName, int maxCapacity) {
+    public Room(String roomName, int maxCapacity) {
         notBlank(roomName,
                 "Room name cannot be blank, empyt or whitespace");
         Validate.isTrue(StringUtils.isAlphanumeric(roomName),
@@ -40,8 +40,8 @@ public class Room {
     void checkCapacity ()
     {
         if (this.currentCapacity > maxCapacity || this.currentCapacity == maxCapacity) {
-            throw new ScheduleConflictException(
-                    "room is full "
+            throw new RuntimeException(
+                    "Room is full "
             );
         }
     }
