@@ -1,14 +1,16 @@
 package com.stswengists;
 
-import static org.apache.commons.lang3.StringUtils.*;
-import static org.apache.commons.lang3.Validate.*;
-
 import java.util.Objects;
+
+import static org.apache.commons.lang3.StringUtils.isAlphanumeric;
+import static org.apache.commons.lang3.Validate.isTrue;
+import static org.apache.commons.lang3.Validate.notBlank;
 
 class Section {
 
      private final String sectionId;
      private Schedule schedule;
+     private Room room;
 
      Section(String sectionId, Schedule schedule) {
          notBlank(sectionId,
