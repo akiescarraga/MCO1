@@ -63,7 +63,39 @@ class StudentTest {
 
     }
 
+    @Test
+    void enlist_section_with_available_slots(){
 
+        // enlisting students to increase current capacity
+        Section section = new Section("SECTIONID", new Schedule(Days.TF,Period.H1430), new Room("S15", 6));
+
+        Student student1 = new Student(1, Collections.emptyList());
+        Student student2 = new Student(2, Collections.emptyList());
+        Student student3 = new Student(3, Collections.emptyList());
+        Student student4 = new Student(4, Collections.emptyList());
+
+        student1.enlist(section);
+        student2.enlist(section);
+        student3.enlist(section);
+        student4.enlist(section);
+
+        // given a new student who wants to enlist in the section
+        Student addedStudent = new Student(5, Collections.emptyList());
+        addedStudent.enlist(section);
+
+        // The newly added student should be enlisted successfully since there is still capacity in the room
+        assertAll(() -> section.getRoom().checkCapacity());
+    }
+
+    @Test
+    void cancel_enlisted_section(){
+        Section section = new Section("A", new Schedule(Days.MTH, Period.H0830), new Room("S12", 3));
+        Student student =  new Student(1, Collections.emptyList());
+
+        student.enlist(section);
+
+        assertAll(() -> student.cancelEnlist(section));
+    }
 
 }
 
