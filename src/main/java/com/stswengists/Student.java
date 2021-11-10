@@ -1,8 +1,11 @@
 package com.stswengists;
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
-import static org.apache.commons.lang3.StringUtils.*;
-import static org.apache.commons.lang3.Validate.*;
+
+import static org.apache.commons.lang3.Validate.isTrue;
+import static org.apache.commons.lang3.Validate.notNull;
 class Student {
 
     private final int studentNumber;
@@ -31,6 +34,12 @@ class Student {
         newSection.getRoom().checkCapacity();
         sections.add(newSection);
         newSection.getRoom().addStudentToRoom();
+    }
+
+    void cancelEnlist(Section enlistedSection) {
+        notNull(sections, "sections can't be null");
+        sections.remove(enlistedSection);
+        enlistedSection.getRoom().removeStudentFromRoom();
     }
 
     Collection<Section> getSections() { return this.sections; }
