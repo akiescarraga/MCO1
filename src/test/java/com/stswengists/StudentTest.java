@@ -81,10 +81,9 @@ class StudentTest {
 
         // given a new student who wants to enlist in the section
         Student addedStudent = new Student(5, Collections.emptyList());
-        addedStudent.enlist(section);
 
         // The newly added student should be enlisted successfully since there is still capacity in the room
-        assertAll(() -> section.getRoom().checkCapacity());
+        assertAll(() -> addedStudent.enlist(section));
     }
 
     @Test
@@ -104,8 +103,8 @@ class StudentTest {
     void cancel_section_not_enlisted_yet(){
         Section section1 = new Section("A", new Schedule(Days.MTH, Period.H0830), new Room("S12", 3));
         Section section2 = new Section("B", new Schedule(Days.TF, Period.H1000), new Room("S12", 3));
-
         Section section3 = new Section("C", new Schedule(Days.MTH, Period.H1300), new Room("S12", 3));
+
         Student student =  new Student(1, Collections.emptyList());
 
         // Enlisting student in sections 1 and 2, but not 3
