@@ -54,4 +54,11 @@ public class Room {
         this.currentCapacity -= 1;
     }
 
+    public String getRoomName(){
+        return this.roomName;
+    }
+
+    public int getMaxCapacity(){
+        return this.maxCapacity;
+    }
 }

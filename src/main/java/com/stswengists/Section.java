@@ -21,7 +21,7 @@ class Section {
 
          this.sectionId = sectionId;
          this.schedule = schedule;
-         this.room = room;
+         this.room = new Room(room.getRoomName(), room.getMaxCapacity());
      }
 
      boolean hasConflict(Section otherSection) {
