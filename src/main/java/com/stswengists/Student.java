@@ -38,6 +38,10 @@ class Student {
 
     void cancelEnlist(Section enlistedSection) {
         notNull(sections, "sections can't be null");
+
+        if(!sections.contains(enlistedSection))
+            throw new RuntimeException("student has not enlisted in section " + enlistedSection);
+
         sections.remove(enlistedSection);
         enlistedSection.getRoom().removeStudentFromRoom();
     }
