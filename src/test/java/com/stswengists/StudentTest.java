@@ -89,12 +89,31 @@ class StudentTest {
 
     @Test
     void cancel_enlisted_section(){
+
         Section section = new Section("A", new Schedule(Days.MTH, Period.H0830), new Room("S12", 3));
         Student student =  new Student(1, Collections.emptyList());
 
+        //enlisting student in the section
         student.enlist(section);
 
+        // The student should be able to successfully cancel his/her enlistment for the section
         assertAll(() -> student.cancelEnlist(section));
+    }
+
+    @Test
+    void cancel_section_not_enlisted_yet(){
+        Section section1 = new Section("A", new Schedule(Days.MTH, Period.H0830), new Room("S12", 3));
+        Section section2 = new Section("B", new Schedule(Days.TF, Period.H1000), new Room("S12", 3));
+
+        Section section3 = new Section("C", new Schedule(Days.MTH, Period.H1300), new Room("S12", 3));
+        Student student =  new Student(1, Collections.emptyList());
+
+        // Enlisting student in sections 1 and 2, but not 3
+        student.enlist(section1);
+        student.enlist(section2);
+
+        // An exception should be thrown since student has not enlisted in section3 yet
+        assertThrows(Exception.class, () -> student.cancelEnlist(section3));
     }
 
 }
